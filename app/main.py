@@ -6,11 +6,17 @@ def main():
     while True:
         sys.stdout.write("$ ")
     # pass
+        commands = ['echo','type','exit']
         command = input()
         if(command == 'exit'):
             break
         elif(command.startswith("echo")):
             print(command[5:])
+        elif(command.startswith("type")):
+            if(command[5:] in commands):
+                print(f"{command[5:]} is a shell builtin")
+            else:
+                print(f"{command[5:]}: not found")
         else:
             print(f"{command}: command not found")
         
